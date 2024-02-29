@@ -1,24 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { Box, styled } from "@mui/material";
 
+import { SideBar } from "./component/SideBar";
+
+import Header from "./component/Header";
+import GridBox from "./component/GridBox";
+import SwitchBox from "./component/SwitchBox";
+
+const MainBox = styled(Box)({
+  width: "calc(100vw - 118px)",
+  "@media (max-width: 992px)": {
+    width: "100vw",
+    "& .second-main-box": {
+      padding: "20px !important",
+      maxWidth: "83% !important",
+      width: "100% !important",
+      margin: "auto !important",
+    },
+  },
+});
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Box style={{ display: "flex", background: "black" }}>
+      <SideBar />
+      <MainBox>
+        <Header />
+        <SwitchBox />
+        <GridBox />
+      </MainBox>
+    </Box>
   );
 }
 
